@@ -72,6 +72,8 @@
 
 .nav-item a.active {
   color: #FFD700;
+  font-weight: 600;
+  transform: translateY(-2px);
 }
 
 .underline {
@@ -79,9 +81,10 @@
   bottom: -4px;
   left: 0;
   right: 0;
-  height: 2px;
-  background: #FFD700;
-  border-radius: 2px;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,91 @@
+.theme-toggle {
+    position: relative;
+    width: 60px;
+    height: 32px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+}
+
+.icon-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Theme-specific styles */
+[data-theme="light"] .theme-toggle {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+[data-theme="dark"] .theme-toggle {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .theme-toggle {
+        width: 50px;
+        height: 28px;
+    }
+
+    .icon-container {
+        width: 20px;
+        height: 20px;
+    }
+
+    .toggle-slider {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Animation for theme transition */
+.theme-toggle * {
+    transition: all 0.3s ease;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+
+    .theme-toggle,
+    .theme-toggle *,
+    .icon-container,
+    .toggle-slider {
+        transition: none !important;
+        animation: none !important;
+    }
+}

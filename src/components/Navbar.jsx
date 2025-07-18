@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
@@ -65,6 +66,10 @@ const Navbar = () => {
             </Link>
           </motion.div>
         ))}
+      </div>
+
+      <div className="nav-controls">
+        <ThemeToggle className="navbar-theme-toggle" />
       </div>
     </motion.nav>
   );

@@ -1,9 +1,11 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Settings from './pages/Settings';
 import Navbar from './components/Navbar';
 import './App.css';
 
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />
+      },
+      {
+        path: "settings",
+        element: <Settings />
       }
     ]
   }
@@ -49,7 +55,11 @@ const router = createBrowserRouter([
 });
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 };
 
 export default App;

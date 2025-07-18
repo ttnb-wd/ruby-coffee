@@ -1,3 +1,61 @@
+/* Global CSS Variables for Theme Support */
+:root {
+  /* Light theme variables - Yellow Mix */
+  --bg-primary: #fffef7;
+  --bg-secondary: #fefce8;
+  --bg-tertiary: #fef3c7;
+  --text-primary: #451a03;
+  --text-secondary: #92400e;
+  --text-on-accent: #451a03;
+  --accent-primary: #f59e0b;
+  --accent-primary-light: rgba(245, 158, 11, 0.1);
+  --border-color: #fbbf24;
+  --shadow-medium: 0 4px 6px -1px rgba(245, 158, 11, 0.1);
+  --shadow-large: 0 10px 15px -3px rgba(245, 158, 11, 0.1);
+
+  /* Navbar variables */
+  --navbar-bg: linear-gradient(135deg, rgba(254, 252, 232, 0.95) 0%, rgba(254, 243, 199, 0.95) 100%);
+  --navbar-bg-scrolled: linear-gradient(135deg, rgba(254, 252, 232, 0.98) 0%, rgba(254, 243, 199, 0.98) 100%);
+  --navbar-text: #451a03;
+  --navbar-accent: #f59e0b;
+  --navbar-border: rgba(69, 26, 3, 0.1);
+  --navbar-shadow: 0 2px 20px rgba(245, 158, 11, 0.1);
+  --navbar-brand-gradient: linear-gradient(45deg, #451a03, #f59e0b);
+  --navbar-underline: linear-gradient(90deg, #f59e0b, #fbbf24);
+  --navbar-underline-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+  --settings-bg: rgba(254, 243, 199, 0.5);
+  --settings-bg-hover: rgba(245, 158, 11, 0.1);
+  --settings-border: rgba(69, 26, 3, 0.1);
+}
+
+[data-theme="dark"] {
+  /* Dark theme variables */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-on-accent: #0f172a;
+  --accent-primary: #FFD700;
+  --accent-primary-light: rgba(255, 215, 0, 0.2);
+  --border-color: #475569;
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+
+  /* Navbar variables for dark theme */
+  --navbar-bg: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+  --navbar-bg-scrolled: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%);
+  --navbar-text: #ffffff;
+  --navbar-accent: #FFD700;
+  --navbar-border: rgba(255, 255, 255, 0.1);
+  --navbar-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  --navbar-brand-gradient: linear-gradient(45deg, #fff, #FFD700);
+  --navbar-underline: linear-gradient(90deg, #FFD700, #FFA500);
+  --navbar-underline-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+  --settings-bg: rgba(51, 65, 85, 0.5);
+  --settings-bg-hover: rgba(255, 215, 0, 0.2);
+  --settings-border: rgba(255, 255, 255, 0.1);
+}
 #root {
   max-width: 100%;
   margin: 0;
@@ -45,10 +103,11 @@
 
 .app {
   min-height: 100vh;
-  background: #1a1a1a;
-  color: #ffffff;
+  background: var(--bg-primary);
+    color: var(--text-primary);
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .main-content {
@@ -58,6 +117,8 @@
   min-height: calc(100vh - 80px);
   position: relative;
   z-index: 1;
+  background: var(--bg-primary);
+    transition: background-color 0.3s ease;
 }
 
 /* Global styles */
@@ -73,8 +134,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #1a1a1a;
-  color: #ffffff;
+  background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Scrollbar styles */
@@ -83,16 +145,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: var(--bg-tertiary);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: var(--border-color);
 }
 
 /* Add padding to account for fixed navbar */
@@ -131,4 +193,20 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  background: var(--bg-primary);
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Theme transition animations */
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  /* Ensure proper theme inheritance */
+  .light-theme {
+    color-scheme: light;
+  }
+  
+  .dark-theme {
+    color-scheme: dark;
 }

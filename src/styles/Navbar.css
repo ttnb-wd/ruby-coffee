@@ -7,24 +7,24 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+  background: var(--navbar-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--navbar-border);
 }
 
 .navbar.scrolled {
   padding: 0.8rem 2rem;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  background: var(--navbar-bg-scrolled);
+    box-shadow: var(--navbar-shadow);
 }
 
 .navbar-brand {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #ffffff;
+  color: var(--navbar-text);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -33,14 +33,14 @@
 
 .navbar-brand a {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--navbar-text);
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .navbar-brand span {
-  background: linear-gradient(45deg, #fff, #FFD700);
+  background: var(--navbar-brand-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -52,13 +52,22 @@
   align-items: center;
 }
 
+.nav-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.navbar-theme-toggle {
+  margin-right: 0;
+}
 .nav-item {
   position: relative;
 }
 
 .nav-item a {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--navbar-text);
   font-weight: 500;
   font-size: 1.1rem;
   padding: 0.5rem 0;
@@ -67,11 +76,11 @@
 }
 
 .nav-item a:hover {
-  color: #FFD700;
+  color: var(--navbar-accent);
 }
 
 .nav-item a.active {
-  color: #FFD700;
+  color: var(--navbar-accent);
   font-weight: 600;
   transform: translateY(-2px);
 }
@@ -82,9 +91,35 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #FFD700, #FFA500);
+  background: var(--navbar-underline);
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+  box-shadow: var(--navbar-underline-shadow);
+  }
+  
+  /* Theme Variables */
+  :root {
+    --navbar-bg: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%);
+    --navbar-bg-scrolled: linear-gradient(135deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.98) 100%);
+    --navbar-text: #1e293b;
+    --navbar-accent: #FFD700;
+    --navbar-border: rgba(30, 41, 59, 0.1);
+    --navbar-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    --navbar-brand-gradient: linear-gradient(45deg, #1e293b, #FFD700);
+    --navbar-underline: linear-gradient(90deg, #FFD700, #FFA500);
+    --navbar-underline-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+    --accent-primary: #FFD700;
+  }
+  
+  [data-theme="dark"] {
+    --navbar-bg: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%);
+    --navbar-bg-scrolled: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%);
+    --navbar-text: #ffffff;
+    --navbar-accent: #FFD700;
+    --navbar-border: rgba(255, 255, 255, 0.1);
+    --navbar-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    --navbar-brand-gradient: linear-gradient(45deg, #fff, #FFD700);
+    --navbar-underline: linear-gradient(90deg, #FFD700, #FFA500);
+    --navbar-underline-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -104,6 +139,9 @@
     gap: 1.2rem;
   }
 
+        .nav-controls {
+          gap: 0.5rem;
+        }
   .nav-item a {
     font-size: 1rem;
   }
@@ -121,4 +159,7 @@
   .nav-item a {
     font-size: 0.9rem;
   }
+.nav-controls {
+  gap: 0.25rem;
+}
 } 
